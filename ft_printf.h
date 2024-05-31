@@ -20,12 +20,13 @@
 #include <stdint.h>
 #include <stddef.h>
 
+int ft_printf(const char *format, ...);
 void ft_putchar(char c);
 void ft_putstr(char *str);
-int ft_putnbr(int nb);
-void ft_putvoid(void *str);
-int	ft_converthexa(long long int nb, char c);
-int	ft_puthexalow(unsigned int nb);
-int	ft_puthexahigh(unsigned int nb);
+void ft_putnbr(int n);
+void ft_putnbr_unsigned(unsigned int n);
+void ft_putnbr_hex(unsigned int n, char format);
+void ft_putpointer(void *ptr);
+
 
 #endif
