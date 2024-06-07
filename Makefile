@@ -6,7 +6,7 @@
 #    By: licohen <licohen@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/31 11:59:15 by licohen           #+#    #+#              #
-#    Updated: 2024/06/07 17:57:24 by licohen          ###   ########.fr        #
+#    Updated: 2024/06/07 19:19:59 by licohen          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRCS	= 	ft_printf.c \
 			ft_printf_Xxu.c \
 			ft_printf_putstr.c \
 			ft_printf_putchar.c \
-			ft_printf_di.c 
+			ft_printf_di.c
 		
 INCLUDES = -I ft_printf.h
 
