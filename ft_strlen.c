@@ -6,20 +6,20 @@
 /*   By: licohen <licohen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 13:18:02 by licohen           #+#    #+#             */
-/*   Updated: 2024/06/07 17:29:43 by licohen          ###   ########.fr       */
+/*   Updated: 2024/06/07 17:59:19 by licohen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-    int len; 
+	int	len;
 
-    len = 0;
-    if(!str)
-        return (0);
-    while (str[len])
-        len++;
-    return (len);
+	len = 0;
+	if (!str)
+		return (0);
+	while (str[len])
+		len++;
+	return (len);
 }

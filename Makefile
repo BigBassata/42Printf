@@ -6,21 +6,45 @@
 #    By: licohen <licohen@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/31 11:59:15 by licohen           #+#    #+#              #
-#    Updated: 2024/06/07 17:29:41 by licohen          ###   ########.fr        #
+#    Updated: 2024/06/07 17:57:24 by licohen          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
+CC 		= cc 
 
-SRCS	= ft_printf.c 
+NAME 	= libftprintf.a
 
-OBJS		=	${SRCS:.c=.o}
+CFLAGS	= -Wall -Wextra -Werror -c
 
-HEAD		=	./includes/
+SRCS	= 	ft_printf.c \
+			ft_strlen.c \
+			ft_printf_Xxu.c \
+			ft_printf_putstr.c \
+			ft_printf_putchar.c \
+			ft_printf_di.c 
+		
+INCLUDES = -I ft_printf.h
 
-CFLAGS		=	-Wall -Wextra -Werror -c
+OBJS	= ${SRCS:.c=.o}
 
-AR		=	ar rcs
+AR		= ar rcs
 
-RM		=	rm -f
+RM		= rm -f 
 
+%.o : %.c 
+			$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+			
+$(NAME) : 	$(OBJS)
+			$(AR) $(NAME) $(OBJS)
+
+all : 		$(NAME)
+
+clean : 
+			$(RM) $(OBJS)
+
+fclean : clean 
+			$(RM) $(NAME)
+
+re : fclean all
+
+.PHONY : all clean fclean re 
