@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_XXu.c                                    :+:      :+:    :+:   */
+/*   ft_printf_Xxu.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: licohen <licohen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 15:39:55 by licohen           #+#    #+#             */
-/*   Updated: 2024/06/07 17:58:49 by licohen          ###   ########.fr       */
+/*   Updated: 2024/06/10 20:22:08 by licohen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_putnbr_base(unsigned int nb, char *str)
+static void	ft_putnbr_base(unsigned long nb, char *str)
 {
-	unsigned int	base;
+	unsigned long	base;
 
+	if (!str)
+		return ;
 	base = ft_strlen(str);
-	if (nb < 0)
-	{
-		ft_print_putchar('-');
-		nb = -nb;
-	}
 	if (nb >= base)
 	{
 		ft_putnbr_base(nb / base, str);
@@ -31,21 +28,21 @@ static void	ft_putnbr_base(unsigned int nb, char *str)
 		ft_print_putchar(str[nb]);
 }
 
-int	ft_count_unsigned(unsigned int nb, char *str)
+int	ft_count_unsigned(unsigned long nb, char *str)
 {
-	int	len;
-	int	base;
+	int				len;
+	unsigned long	base;
 
 	len = 0;
-	base = ft_strlen(str);
-	ft_putnbr_base(nb, str);
 	if (!str)
 		return (0);
+	base = ft_strlen(str);
+	ft_putnbr_base(nb, str);
 	if (nb == 0)
 		return (1);
-	if (nb > 0)
+	while (nb > 0)
 	{
-		nb = nb / base;
+		nb /= base;
 		len++;
 	}
 	return (len);

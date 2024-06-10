@@ -6,7 +6,7 @@
 /*   By: licohen <licohen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 14:56:25 by licohen           #+#    #+#             */
-/*   Updated: 2024/06/07 19:19:55 by licohen          ###   ########.fr       */
+/*   Updated: 2024/06/10 20:15:48 by licohen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ static int	ft_convert(va_list arg, char c)
 	else if (c == 'X')
 		len = ft_count_unsigned(va_arg(arg, unsigned int), "0123456789ABCDEF");
 	else if (c == '%')
-		len = ft_print_putchar('%'); 
-    return (len);
+		len = ft_print_putchar('%');
+	else if (c == 'p')
+		len = ft_p(va_arg(arg, void *));
+	return (len);
 }
 
 int	ft_printf(const char *format, ...)
@@ -63,3 +65,9 @@ int	ft_printf(const char *format, ...)
 	return (len);
 }
 
+// int main (void)
+// {
+// 	int result = ft_printf(" % anflkjewashebf ");
+// 	printf("Result: %d\n", result);
+// 	return (0);
+// }

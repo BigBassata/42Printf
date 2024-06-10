@@ -6,7 +6,7 @@
 /*   By: licohen <licohen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:01:18 by licohen           #+#    #+#             */
-/*   Updated: 2024/06/07 17:58:29 by licohen          ###   ########.fr       */
+/*   Updated: 2024/06/10 20:22:30 by licohen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 
 static void	ft_putnbr(int nb)
 {
+	if (nb == INT_MIN)
+	{
+		ft_print_putchar('-');
+		ft_print_putchar('2');
+		nb = 147483648;
+	}
 	if (nb < 0)
 	{
 		ft_print_putchar('-');
@@ -34,7 +40,7 @@ int	ft_count_signed(int nb)
 
 	len = 0;
 	ft_putnbr(nb);
-	if (nb == -2147483648)
+	if (nb == INT_MIN)
 		return (11);
 	if (nb == 0)
 		return (1);
